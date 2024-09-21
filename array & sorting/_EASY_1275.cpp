@@ -15,13 +15,13 @@ public:
         	rows[currMove[0]] += currPlayer;
         	cols[currMove[1]] += currPlayer;
         	diag1 = currMove[0] == currMove[1] ? diag1 + currPlayer : diag1;
-        	diag2 = currMove[0] + currMove[1] == n - 1 ? diag2 + currPlayer : diag2;
+        	diag2 = currMove[0] + currMove[1] == n-1 ? diag2 + currPlayer : diag2;
 
         	if(abs(rows[currMove[0]]) == n || abs(cols[currMove[1]]) == n || abs(diag1) == n || abs(diag2) == n){
         		return currPlayer == 1 ? "A" : "B";
         	}
 
-        	currPlayer *= -1; 
+        	currPlayer *= -1;
         }
 
         return moves.size() < 9 ? "Pending" : "Draw";
