@@ -18,19 +18,26 @@ using namespace std;
 
 class Solution {
 public:
-    long long countFairPairs(vector<int>& nums, int l, int u) 
-    {
-        long long ans=0;
-        sort(nums.begin(),nums.end());
-        for(int i=0; i<nums.size(); i++){
-            int lb=lower_bound(nums.begin()+i+1,nums.end(),l-nums[i])-nums.begin();
-            int ub=upper_bound(nums.begin()+i+1,nums.end(),u-nums[i])-nums.begin();
-            if(ub>=lb)ans+=ub-lb;
+    long long countFairPairs(vector<int>& nums, int l, int u) {
+        long long ans = 0;
+        sort(nums.begin(), nums.end());
+
+        for (int i = 0; i < nums.size(); i++) {
+        	/*
+				lower <= nums[i] + nums[j] <= upper
+        	*/
+            int min_val_for_j = l - nums[i];
+            int max_val_for_j = u - nums[i];    
+            int lb = lower_bound(nums.begin() + i + 1, nums.end(), min_val_for_j) - nums.begin();
+            int ub = upper_bound(nums.begin() + i + 1, nums.end(), max_val_for_j) - nums.begin();
+            if (ub > lb) {
+                ans += (ub - lb);
+            }
         }
         return ans;
-        
     }
 };
+
 
 int main(){
 	Solution sol;
