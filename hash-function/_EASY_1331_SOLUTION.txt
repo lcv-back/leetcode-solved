@@ -1,0 +1,15 @@
+Step 1: 
+- Have a map to storage the rank of elements
+- Initialize the copied array of arr, because need to sort
+- Initialize the startRank = 1
+
+Step 2: 
+- Sorting the copied array to assign the rank for each elements
+
+Step 3:
+- Set the rank for each element ignore the duplicate elements
+- Assign the rank for each elemnt from left to right
+- Plus one for startRank
+
+Step 4:
+- Transfer the rank to res array and return res

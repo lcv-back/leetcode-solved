@@ -1,3 +1,5 @@
+#include<vector>
+using namespace std;
 class CustomStack {
 private:
     vector<int> stack;
@@ -45,3 +47,12 @@ public:
  * int param_2 = obj->pop();
  * obj->increment(k,val);
  */
+
+int main(){
+
+    CustomStack* obj = new CustomStack(3);
+    obj->push(1);
+    int param_2 = obj->pop();
+    obj->increment(2, 100);
+    return 0;
+}
