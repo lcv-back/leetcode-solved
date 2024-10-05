@@ -1,0 +1,28 @@
+* Solution for medium 1590
+Step 1: Analysis requirements
+
+INPUT
+- Given an array of positive integers (nums)
+- Given a integer representation to divisor (p)
+
+EXPECTED
+- Remove the smallest subarray (possibly empty) 
+- Ensure the sum of the remaining elements is divisible by p
+- Not allowed to remove the whole array
+
+OUTPUT
+- Return the length of the smallest subarray that you need to remove
+	- Return -1 if it's impossible
+
+Step 2: Design strategy
+* Approach 1: 
+
+1. The remainder
+- Initialize the remainder = total sum *modulo* by p
+- The remainder is the sum of subarray need to remove
+- Note: The remainder after remove equal to total sum of all the elements *modulos* by p
+- If the remainder equal 0 then remove subarray is *empty*
+
+2. Prefix sum
+- Use prefix sum to track the sum of subarrays
+- By keeping track the prefix sums mod p, can check if a subarray that satisfies the condition can be found

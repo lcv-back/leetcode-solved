@@ -1,0 +1,21 @@
+Solution for problem 2491
+
+input
+given a positive integer array (skill)
+	- even length (n)
+
+procees
+dive into n/2 teams of size 2
+	such the total skill of each team is equal
+
+output
+return the sum of the chemistry of all the teams
+return -1 if otherwise
+
+stragetry
+- the team can be divide: numTeams = skill.size() / 2
+- the sum such that each team need to adding: sumOfEachSubArr = totalSum / numTeams
+	if can not divide: totalSum % numTeams != 0 return -1
+
+- Have vector<vector<int>> store to storage the any subarray
+- Find the index can be replace insite the array
