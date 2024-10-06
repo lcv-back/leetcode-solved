@@ -4,12 +4,19 @@
 using namespace std;
 
 /*
+    Description 
+    - s1 is shorter string, s2 is longer string
+
     Sliding window
     - Sort the short string
     - Use sliding window for the length of the short string
     - Sort the sliding window
     - Compare the sorted short string with the sorted window in s2
     - Return
+
+    Evaluation
+    - Time complexity: O(n)
+    - Space complexity: O(logn)
 */
 
 class Solution {
@@ -18,12 +25,12 @@ public:
         sort(s1.begin(), s1.end());
         int m = s1.length();
         int n = s2.length();
-
         if(m > n) return false;
 
         for(int i=0; i<n; i++){
             string window = s2.substr(i, m);
             sort(window.begin(), window.end());
+
             if(window == s1) return true;
         }
 
