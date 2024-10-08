@@ -1,7 +1,19 @@
 #include <iostream>
 #include <stack>
-
 using namespace std;
+
+/*
+	analysis requirements
+	- input: string s
+	- processing: 
+		- use stack
+		- initialization stack store character 
+		- if stack is empty, push character to stack
+		- if stack dont empty, current character is 'B' and stack's top is 'A' remove stack's top
+		- if stack dont empty, current character is 'D' and stack's top is 'C' remove stack's top
+		- the stack's size is the minimum length of string
+	- output: the minimum length string operations after removed
+*/
 
 class Solution {
 public:

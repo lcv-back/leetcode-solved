@@ -1,8 +1,6 @@
 #include <string>
 #include <iostream>
-
 using namespace std;
-
 /*
 	analysis requirements:	
 	- input: string s
