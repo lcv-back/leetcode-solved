@@ -14,11 +14,19 @@ using namespace std;
 		if nums length < 2: return 0
 		otherwise:
 			maxWidth = 0
-			
+			- initialize the rightMax array to storage the max value from each index to last element
+			- asign the last element rightMax to the last of array nums
+			- for loop from the second last element to the first element
+				- asign each index to the max of rightMax on i+1 and nums on i
 
-			
+			- use pointer left and right both start from 0
+			- initialize maxWidth to storage the max width ramp possible
 
-
+			for loop on condition right less than n
+				- if satisfied pointer left less than right and nums[left] greater than rightMax[right]
+					- increment pointer left
+				- update the maxWidth to the max of previous maxWidth and current width
+				- increment right
 */
 
 class Solution {
