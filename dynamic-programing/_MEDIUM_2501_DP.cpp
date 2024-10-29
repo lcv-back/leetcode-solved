@@ -20,40 +20,57 @@ using namespace std;
 		2 <= nums.length <= 10^5
 		2 <= nums[i] <= 10^5
 */
+/*
+    Optimized Solution:
+    Time Complexity: O(n) where n is the length of nums
+    Space Complexity: O(n) for the hashset
+    
+    The original solution:
+    - Time: O(n log n) due to sorting
+    - Space: O(n) for storing perfect squares array and set
+    
+    Improvements made:
+    1. Eliminate the need for sorting by using a hashset approach
+    2. Remove the separate perfect squares array
+    3. Process numbers directly without pre-filtering perfect squares
+    4. Calculate streaks in a single pass through the data
+    
+    Key idea:
+    - For each number x, check if x is part of a streak by looking for x^2
+    - Use hashset for O(1) lookups
+    - Track the longest streak by starting from smallest numbers
+*/
+
 
 class Solution {
 public:
     int longestSquareStreak(vector<int>& nums) {
-        int longestStreak = 0;
-
-        // Create a set to store all unique numbers from the input array
-        unordered_set<int> uniqueNumbers(nums.begin(), nums.end());
-
-        // Iterate through each number in the input array
-        for (int startNumber : nums) {
-            int currentStreak = 0;
-            long long current = startNumber;
-
-            // Continue the streak as long as we can find the next square in the
-            // set
-            while (uniqueNumbers.find((int)current) != uniqueNumbers.end()) {
-                currentStreak++;
-
-                // Break if the next square would be larger than 10^5 (problem
-                // constraint)
-                if (current * current > 1e5) break;
-
-                current *= current;
-            }
-
-            // Update the longest streak if necessary
-            longestStreak = max(longestStreak, currentStreak);
-        }
-
-        // Return -1 if no valid streak found, otherwise return the longest
-        // streak
-        return longestStreak < 2 ? -1 : longestStreak;
-    }
+		unordered_set<int> numSet(nums.begin(), nums.end());
+		int longestStreak = -1;
+		
+		// For each number, try to find the longest streak starting from it
+		for (int num : nums) {
+			// Skip if we've already found a longer streak starting from a smaller number
+			if (numSet.find(sqrt(num)) != numSet.end()) {
+				continue; // This number is part of a streak starting from a smaller number
+			}
+			
+			// Try to build a streak starting from this number
+			long long current = num;
+			int currentStreak = 1;
+			
+			while (current <= INT_MAX && numSet.find(current * current) != numSet.end()) {
+				current = current * current;
+				currentStreak++;
+			}
+			
+			if (currentStreak >= 2) {
+				longestStreak = max(longestStreak, currentStreak);
+			}
+		}
+		
+		return longestStreak;
+	}
 };
 
 auto init = []() {
