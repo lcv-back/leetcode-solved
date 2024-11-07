@@ -4,7 +4,7 @@ using namespace std;
 
 class Solution {
 public:
-    bool canSortArray(std::vector<int>& nums) {
+    bool canSortArray(vector<int>& nums) {
         int prevMax = INT_MIN;
         int currMax = nums[0];
         int currMin = nums[0];
@@ -12,8 +12,8 @@ public:
 
         for (size_t i = 1; i < nums.size(); i++) {
             if (setBits == countBits(nums[i])) {
-                currMax = std::max(currMax, nums[i]);
-                currMin = std::min(currMin, nums[i]);
+                currMax = max(currMax, nums[i]);
+                currMin = min(currMin, nums[i]);
             } else {
                 if (currMin < prevMax)
                     return false;
