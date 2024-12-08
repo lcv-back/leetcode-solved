@@ -4,19 +4,19 @@ using namespace std;
 class Solution {
 public:
     bool canDistribute(int x, vector<int>& quantities, int n) {
-        int j = 0;
-        int remaining = quantities[j];
+        int j = 0; // the pointer have the purpose is point to current any stores
+        int remaining = quantities[j]; // init
 
         for(int i=0; i<n; i++){
-        	if(remaining <= x){
-        		j++;
-        		if(j == quantities.size()){
+        	if(remaining <= x){ // needed condition => mandatory condition
+        		j++; // point to the next store
+        		if(j == quantities.size()){ // roll to destination is array size
         			return true;
         		} else {
-        			remaining = quantities[j];
+        			remaining = quantities[j]; // not destination
         		}
         	} else {
-        		remaining -= x;
+        		remaining -= x; // distributed perform
         	}
         }
 
@@ -29,9 +29,11 @@ public:
 
     	while(left < right){
     		int middle = left + ((right-left) / 2);
-    		if(canDistribute(middle, quantities, n)){
+    		if(canDistribute(middle, quantities, n)){ // if true but needed to find the the minimum of x
+    			// try with smarter value
     			right = middle;
     		} else {
+    			// transform scope
     			left = middle+1;
     		}
     	}

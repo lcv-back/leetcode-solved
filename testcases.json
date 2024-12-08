@@ -1,0 +1,12 @@
+[
+    {
+        "description": "Test case 1: Simple addition",
+        "input": [2, 3],
+        "output": 5
+    },
+    {
+        "description": "Test case 2: Negative numbers",
+        "input": [-1, -1],
+        "output": -2
+    }
+]
