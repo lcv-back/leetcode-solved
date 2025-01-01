@@ -1,0 +1,11 @@
+approach 1: brute force
+	- iterator: 0 -> len - 1
+		split 
+			- substring 1: represent left side ('0')
+			- substring 2: represent right side ('1')
+		counting:
+			- the number of '0' on substring 1
+			- the number of '1' on substring 2
+		compare:
+			with max (variable)
+	- return max
