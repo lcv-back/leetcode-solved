@@ -1,5 +1,5 @@
 approach 1: brute force
-	- iterator: 0 -> len - 1
+	- iterator: 0 -> len - 1 (because right side at least 1 character)
 		split 
 			- substring 1: represent left side ('0')
 			- substring 2: represent right side ('1')
@@ -11,3 +11,13 @@ approach 1: brute force
 	- return max
 
 approach 2: optimize
+	- calculate the number of '1' on string s on 'ones'
+	- iterator: 0 -> len - 1 (because right side at least 1 character)
+		checkthe change character is '0' or '1':
+			- zeros plus if character is '0'
+			- ones plus what else
+		calculate:
+			- the zeros and ones each the change:
+		compare:
+			- with max (variable)
+		

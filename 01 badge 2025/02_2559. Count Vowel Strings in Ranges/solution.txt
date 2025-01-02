@@ -1,0 +1,24 @@
+understand the requirements:
+	input:
+		- words: vector of string
+		- queries: vector of query (from start to end) and query on words
+	process:
+		- operations with queries size
+		- each operation:
+			with each vector on queries vector
+				queries[i] = [left[i], right[i]]
+					with left[i] and right[i] representation for the begin element and the end element on words vector
+						- impotant: check the first and the last string is vowel character?
+							- if true counting plus 1
+	output:
+		- the vector size same the vector queries size
+		- the vector storage elements are the number valid after any operations
+
+solution 1: brute force
+	- initialize the vector result same size like queries vector
+	- iterate: queries vector: 0 -> queries size
+		with queries[i] = left[i], right[i]
+		iterate on words vector: i = left[i] and i <= right[i] (0 <= i <= words size)
+			check the words[i]:
+				the first element and the last element are vowel character => update result on i position
+	- return result vector
