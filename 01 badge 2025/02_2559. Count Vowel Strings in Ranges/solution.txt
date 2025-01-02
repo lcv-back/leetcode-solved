@@ -1,24 +1,38 @@
-understand the requirements:
-	input:
-		- words: vector of string
-		- queries: vector of query (from start to end) and query on words
-	process:
-		- operations with queries size
-		- each operation:
-			with each vector on queries vector
-				queries[i] = [left[i], right[i]]
-					with left[i] and right[i] representation for the begin element and the end element on words vector
-						- impotant: check the first and the last string is vowel character?
-							- if true counting plus 1
-	output:
-		- the vector size same the vector queries size
-		- the vector storage elements are the number valid after any operations
+Problem Understanding:
+Given a list of words (strings) and a list of queries, each query specifies a range [left[i], right[i]] which indicates the start and end indices of the words vector. For each query, we need to check how many words in that range have both the first and last characters as vowels. Finally, we return a result where each element corresponds to the number of valid words for each query.
 
-solution 1: brute force
-	- initialize the vector result same size like queries vector
-	- iterate: queries vector: 0 -> queries size
-		with queries[i] = left[i], right[i]
-		iterate on words vector: i = left[i] and i <= right[i] (0 <= i <= words size)
-			check the words[i]:
-				the first element and the last element are vowel character => update result on i position
-	- return result vector
+Solution 1: Brute Force
+	In the brute force solution, we:
+		1. Initialize a result vector of the same size as the queries vector.
+		2. Iterate through each query.
+		3. For each query, iterate through the range [left[i], right[i]] of the words vector.
+		4. Check if the first and last characters of each word in that range are vowels.
+		5. Update the result vector accordingly by counting how many words meet the criteria for each query.
+		6. Return the result.
+Time complexity:
+	O(n*q) where n is the number of words and q is the number of queries
+	
+Solution 2: Optimize with Prefix Sum
+	To optimize the brute force approach, we can use the prefix sum technique. This technique helps by preprocessing the words vector to create a summary of counts in advance. The main idea is to use a helper array prefix where each entry at index i stores the cumulative count of valid words (those that start and end with a vowel) from index 0 to i-1.
+
+	With this approach, we only need to compute the valid words once for the entire words vector, and each query can be answered in constant time.
+
+Steps for Prefix Sum Approach:
+	1. Preprocessing with Prefix Sum:
+		- First, we iterate through the words vector and build the prefix array. The prefix[i] will store the count of words that start and end with vowels from index 0 to i-1.
+		- To build this array, we check each word once, and for each word, we check if its first and last characters are vowels.
+	2. Answering Queries:
+		- For each query [left[i], right[i]], the result is simply the difference between the cumulative count at right[i] + 1 and left[i].
+		- The reason we use right[i] + 1 is because the prefix sum is inclusive of the element at index right[i].
+	3. Time Complexity:
+		- Preprocessing time: O(n), where n is the number of words in the words vector.
+		- Query time: O(1) per query, since we are simply looking up values in the prefix array.
+
+Explanation of Prefix Sum:
+	1. Prefix Array Construction:
+		- The prefix[i + 1] array element stores the count of words that start and end with vowels from index 0 to i. We check the current word at index i, and if it satisfies the condition (first and last characters are vowels), we increment the prefix count by 1.
+	2. Querying with Prefix Sum
+		- For each query, instead of looping through the range [left[i], right[i]] to count valid words, we simply subtract prefix[left] from prefix[right + 1] to get the count of valid words in that range. This provides a constant-time query solution.
+
+Time complexity:
+	O(n)
