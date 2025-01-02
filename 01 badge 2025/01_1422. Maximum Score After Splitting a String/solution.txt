@@ -9,3 +9,5 @@ approach 1: brute force
 		compare:
 			with max (variable)
 	- return max
+
+approach 2: optimize
