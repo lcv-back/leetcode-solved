@@ -1,0 +1,11 @@
+Solution 1: Brute Force
+with 3 loop for
+i=0
+j=i+1
+k=j+1
+if s[i] = s[k] 
+create a string include s[i] + s[j] + s[k]
+counting string to ans
+return ans
+
+Solution 2: 

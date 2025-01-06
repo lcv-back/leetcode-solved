@@ -6,23 +6,20 @@ using namespace std;
 class Solution {
 public:
     int countPalindromicSubsequence(string s) {
+        int n = s.size();
+        int ans = 0;
         unordered_set<char> letters;
-        int ans=0;
-        int n=s.size();
-        for(char c : s){
-        	letters.insert(c);
-        }
+        for(char c : s) letters.insert(c);
 
         for(char letter : letters){
-        	int i = -1; // first character
-        	int j = 0; // last character
+        	int i = -1;
+        	int j = 0;
 
-        	for(int k=0; k <n; k++){
+        	for(int k=0; k < n; k++){
         		if(s[k] == letter){
         			if(i == -1){
         				i = k;
         			}
-
         			j = k;
         		}
         	}
@@ -34,6 +31,7 @@ public:
 
         	ans += between.size();
         }
+
         return ans;
     }
 };
