@@ -1,0 +1,22 @@
+# Understand requirements
+- Give a vector strings 
+- Return strings is substring of another string
+
+# Solution 1: Brute Force
+  1. Prepare
+  - Initialize the vector ans storage elements valid
+  - Initialize set storage elements was visited
+  2. Process
+  - Traversal from 0 to words size => [i]
+  	- Get current string => words[i]
+  - Traversal from 0 to words size => [j]
+  	- Satisfy condition: 
+  		+ string at j differene string at i => words[i] != words[j] => j != i
+  		+ check string have sub string is another string? => true
+  		+ set don't storage j
+  	- If satisfy all conditions:
+  		+ Insert j to set
+  		+ Insert words[j] to vector ans
+
+  3. Output
+  - Return the vector ans
