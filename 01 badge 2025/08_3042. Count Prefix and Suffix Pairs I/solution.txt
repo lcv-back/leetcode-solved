@@ -1,0 +1,2 @@
+# Understand requirements
+- Given vector of string
