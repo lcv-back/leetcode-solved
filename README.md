@@ -7,9 +7,10 @@ Hi! I am Vi Le. Welcome to my GitHub profile.
 <!-- LEETCODE_STATS_START -->
 **LeetCode Stats**:
 
-- Easy: 203
-- Medium: 96
-- Hard: 99
+- Total Problems Solved: 203
+- Easy: 96
+- Medium: 99
+- Hard: 8
 <!-- LEETCODE_STATS_END -->
 
 ## About Me

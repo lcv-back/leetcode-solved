@@ -35,9 +35,10 @@ def fetch_leetcode_stats():
 
 # Update README.md with stats
 def update_readme(stats):
-    easy = stats[0]["count"]
-    medium = stats[1]["count"]
-    hard = stats[2]["count"]
+    total = stats[0]["count"]
+    easy = stats[1]["count"]
+    medium = stats[2]["count"]
+    hard = stats[3]["count"]
 
     with open(README_FILE, "r") as file:
         lines = file.readlines()
@@ -54,6 +55,7 @@ def update_readme(stats):
     if start_index is not None and end_index is not None:
         stats_content = (
             f"**LeetCode Stats**:\n\n"
+            f"- Total Problems Solved: {total}\n"
             f"- Easy: {easy}\n"
             f"- Medium: {medium}\n"
             f"- Hard: {hard}\n"
