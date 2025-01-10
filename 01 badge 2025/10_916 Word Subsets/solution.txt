@@ -1,0 +1,13 @@
+# Understanding requirements
+- Given two string arrays 'words1' and 'words2'
+- Return an array of all the universal strings in words1
+- Note: The universal: A string a from words1 in universal if for every string b in words2, b is a subset of a
+
+# Solution 1: Brute force 
+- Traversal 2 for loop
+- Each w2 for w1 if w2 isnt substring w1, set a variable is true
+- If variable if false, push w1 to string array
+- Time: O(n^2)
+- Space: O(n)
+
+# Solution 2: Optimize: Hash table
