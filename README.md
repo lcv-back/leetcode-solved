@@ -9,17 +9,17 @@ Hi! I am Vi Le. Welcome to my GitHub profile.
 
 **User Profile Information:**
 - Username: ViLeIUH185
-- Total Problems Solved: 203
+- Total Problems Solved: 204
 - Ranking: 528709
 - Reputation: 0
 
 **Problems Information:**
 - Easy: 96/849
-- Medium: 99/1779
+- Medium: 100/1779
 - Hard: 8/788
 
 **Coding Languages and Runtime Information:**
-- C++: 134 problems
+- C++: 135 problems
 - Java: 76 problems
 - Python: 2 problems
 - C: 2 problems
