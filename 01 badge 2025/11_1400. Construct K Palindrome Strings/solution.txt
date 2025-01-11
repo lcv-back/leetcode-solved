@@ -1,0 +1,5 @@
+# Solution 1: Brute Force
+- Key insight:
+	- Counting the frequencies of character in string s
+	- If have more character have the frequency is odd > 1 => can not form symmetric palindrome
+	- If has 1 character have frequency is odd and other is even => can form symmetric palindrome
