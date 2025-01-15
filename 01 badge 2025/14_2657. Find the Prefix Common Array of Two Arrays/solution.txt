@@ -1,0 +1,7 @@
+# Solution 1: Brute Force
+- Have a set to storage elements was seen
+- Traversal the length of A or (both n)
+- Check if element processing contained in array A or B
+- Insert element to set if not contain
+- Update the result each for i
+- Return array res
