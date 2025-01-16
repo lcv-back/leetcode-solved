@@ -1,0 +1,8 @@
+# Solution 1: Brute Force
+- Traversal all elements nums1 and nums2
+- Have a array nums3 to storage elements XOR operators between nums1 and nums2
+- Use for loop from 0 to nums3 length
+	- bitwise XOR all elements on nums3 asign to res variable
+- Return res
+
+# Solution 2: Optimize
