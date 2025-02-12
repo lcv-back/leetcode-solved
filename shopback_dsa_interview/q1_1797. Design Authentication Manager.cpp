@@ -45,20 +45,20 @@ public:
 };
 
 int main(){
-	AuthenticationManager authManager(5); // Thời gian sống của mã thông báo là 5 giây
+	AuthenticationManager authManager(5); // time to live is 5
     
-    // Tạo một số mã thông báo
+    // generate token
     authManager.generate("token1", 1);
     authManager.generate("token2", 2);
     
-    // Gia hạn mã thông báo "token1"
+    // renew token1
     authManager.renew("token1", 3);
     
-    // Đếm số lượng mã thông báo chưa hết hạn tại thời gian t = 6
-    cout << "Unexpired Tokens at time 6: " << authManager.countUnexpiredTokens(6) << endl; // Kết quả là 2
+    // counting unexpired tokens at time t = 6
+    cout << "Unexpired Tokens at time 6: " << authManager.countUnexpiredTokens(6) << endl; // 2
 
-    // Đếm số lượng mã thông báo chưa hết hạn tại thời gian t = 7
-    cout << "Unexpired Tokens at time 7: " << authManager.countUnexpiredTokens(7) << endl; // Kết quả là 1
+    // counting unexpired tokens at time t = 7
+    cout << "Unexpired Tokens at time 7: " << authManager.countUnexpiredTokens(7) << endl; // 1
     
     return 0;
 }
