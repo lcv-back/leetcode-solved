@@ -18,10 +18,11 @@ public:
         }
 
         int l=0, r=unit.size()-1;
-        while(l<r){
+        while(l<=r){
             int mid=(l+r)/2;
             if(unit[mid] > unit[r]) l=mid+1;
-            else r=mid;
+            else if(unit[mid] < unit[r]) r=mid;
+            else r--;
         }
 
         return unit[l];
